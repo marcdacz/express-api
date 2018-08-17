@@ -30,7 +30,7 @@ app.get('/customEndpoint', (req, res) => {
 // Pokemon Methods
 app.get('*', (req, res) => {
 	let dir = path.join(__dirname, req.path + '/');
-	route.genericGet(req, res, dir);
+	route.getDefaultData(req, res, dir);
 });
 
 const defaultResponse = (req, res) => {
@@ -43,10 +43,7 @@ const defaultResponse = (req, res) => {
 
 app.post('*', defaultResponse);
 app.put('*', defaultResponse);
-app.patch('*', defaultResponse);
 app.delete('*', defaultResponse);
-app.options('*', defaultResponse);
-
 
 http.createServer(app).listen(port, () => {
 	console.log(`API Server listening on port ${port}`);

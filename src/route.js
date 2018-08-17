@@ -7,7 +7,7 @@ let loadJson = (res, dir, file = "success") => {
 	res.status(200).send(json);
 };
 
-exports.getCustomData = function(req, res, dir) {
+exports.getCustomData = (req, res, dir) => {
 	let file = 'hasNoCookie';
 	const token = req.cookies.myCookie;
 	if (['hasCookie', 'hasNoCookie'].includes(token)) {
@@ -16,6 +16,6 @@ exports.getCustomData = function(req, res, dir) {
 	loadJson(res, dir, file);
 };
 
-exports.genericGet = function(req, res, dir) {
+exports.getDefaultData = (req, res, dir) => {
 	loadJson(res, dir);
 };
